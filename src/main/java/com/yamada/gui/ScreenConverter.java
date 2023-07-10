@@ -1,5 +1,6 @@
 package com.yamada.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.SimpleTheme;
@@ -29,6 +30,7 @@ public class ScreenConverter {
     private WindowBasedTextGUI textGUI;
 
     private List<Currency> currencies;
+    private static final Theme DEFAULT_THEME = new SimpleTheme(TextColor.ANSI.DEFAULT, TextColor.ANSI.DEFAULT, SGR.BOLD);
 
 
     public ScreenConverter() {
@@ -146,6 +148,7 @@ public class ScreenConverter {
         panel.addComponent(new Label("Value:"));
         panel.addComponent(new Separator(Direction.VERTICAL));
         TextBox textValue = new TextBox().setValidationPattern(Pattern.compile("[0-9]*")).addTo(panel);
+        textValue.setTheme(DEFAULT_THEME);
 
         panel.addComponent(new Label("From:"));
         panel.addComponent(new Separator(Direction.VERTICAL));
@@ -210,6 +213,7 @@ public class ScreenConverter {
         panel.addComponent(new Label("Value:"));
         panel.addComponent(new Separator(Direction.VERTICAL));
         TextBox textValue = new TextBox().setValidationPattern(Pattern.compile("[0-9]*")).addTo(panel);
+        textValue.setTheme(DEFAULT_THEME);
 
         panel.addComponent(new Label("From:"));
         panel.addComponent(new Separator(Direction.VERTICAL));
